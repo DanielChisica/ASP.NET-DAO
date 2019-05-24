@@ -208,5 +208,33 @@ namespace DemoDatos.Modelo
         }
         //************************************************************************
         //************************************************************************
+
+        public bool Autenticar(string usuario, string password)
+        {
+
+            string queryString =
+            "SELECT COUNT(*) FROM dbo.tbl_Usuarios WHERE usuario = @usuario AND contraseña = @password";
+            SqlCommand command = null;
+            bool bandera = false;
+
+
+            try
+            {
+                con.Open();
+                command = new SqlCommand(queryString, con);
+                command.Parameters.AddWithValue("@usuario", usuario);
+                command.Parameters.AddWithValue("@password", password);
+                int count = Convert.ToInt32(command.ExecuteScalar());
+                if (count != 0)
+                {
+                    bandera = true;
+                }
+            }catch(Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Error " + e.ToString());
+            }
+            return bandera;
+
+        }
     }//Fin de la clase
 }

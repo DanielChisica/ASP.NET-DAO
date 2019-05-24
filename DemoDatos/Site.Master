@@ -74,6 +74,7 @@
              <li><a runat="server" href="~/crudtabla/ModificarRecord">Modificar Registro</a></li>
              <li><a runat="server" href="~/crudtabla/ConsultarRecords">Consultar Registro</a></li>
              <li><a runat="server" href="~/crudtabla/EliminarRecord">Eliminar Registro</a></li>
+             <li><a runat="server" href="~/crudtabla/Autenticar">Autenticar</a></li>
          </ul>
   <!-- end #header --></div>
     <!-- **********************************************-->
