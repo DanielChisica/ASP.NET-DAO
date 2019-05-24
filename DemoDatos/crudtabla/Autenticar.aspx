@@ -20,8 +20,12 @@
                     <asp:TextBox ID="txt_password" runat="server" Width="294px"></asp:TextBox>
                 </td>
             </tr>
-        <tr style="width:auto"">
+        <tr style="">
             <td><asp:Button Text="Ingresar" runat="server" ID="btn_Ingresar" OnClick="btn_Ingresar_Click" /></td> 
+            <td>
+                    <asp:Label ID="txt_DatosAtuenticacion" runat="server" 
+                        Text=""></asp:Label>
+                </td>
         </tr>
     </table>
 </asp:Content>

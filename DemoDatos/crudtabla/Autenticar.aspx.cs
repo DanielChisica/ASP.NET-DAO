@@ -11,6 +11,7 @@ namespace DemoDatos.crudtabla
     public partial class Autenticar : System.Web.UI.Page
     {
         private static ControladorDAORecord controlador;
+        private static UsuarioVO usuario;
         protected void Page_Load(object sender, EventArgs e)
         {
             string cadenaConexion = "";
@@ -28,6 +29,8 @@ namespace DemoDatos.crudtabla
             if(x == true)
             {
                 System.Diagnostics.Debug.WriteLine("Usuario ingreso correctamente");
+                usuario = controlador.consultar(txt_User.Text);
+                txt_DatosAtuenticacion.Text = " Bienvenido " + usuario.Nombres + " " + usuario.Apellidos + "- Nombre de usuario " + usuario.Username + " Ultimo inicio de sesion registrada " + usuario.Fecha_ingreso.Year +" - "+ usuario.Fecha_ingreso.Month + " - " + usuario.Fecha_ingreso.Day;
             }
 
         }
