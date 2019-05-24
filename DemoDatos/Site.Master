@@ -1,0 +1,105 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="DemoDatos.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Aplicación Web con Estilos CSS"/>
+    <meta name="keywords" content="DIPOL,Sistema,Información,Web,Azure"/>
+    <meta name="author" content="Jaimito el Cartero"/>
+    <!-- *********************************************-->
+    <!-- *********************************************-->
+    <!-- *********************************************-->
+    <%-- Etiquetas de control de cache --%>
+     <meta http-equiv="cache-control" content="no-cache" />
+     <meta http-equiv="expires" content="0" />
+     <meta http-equiv="pragma" content="no-cache" />
+    <!-- *********************************************-->
+    <!-- *********************************************-->
+    <!-- *********************************************-->
+    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link rel="stylesheet" type="text/css" href="Content/estilosMaqueta.css"/>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<!-- *************************************************** -->
+<!-- *************************************************** -->
+<!-- *************************************************** -->
+    <body class="oneColLiqCtrHdr">
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+<!-- *************************************************** -->
+<!-- *************************************************** -->
+<!-- *************************************************** -->
+<div id="container">
+    <!-- **********************************************-->
+    <!-- **********************************************-->
+    <!-- Header -->
+  <div id="header">
+        <img src="../imagenes/logoEAN.png" alt="Universidad EAN" title="Aplicacion ASP.NET" class="centrado"/>
+      <br />
+    <h5><b>Menú Principal</b></h5>
+      <br />
+      <br />
+         <ul id="menu" >
+             <li><a runat="server" href="~/">Inicio</a></li>
+             <li><a runat="server" href="~/crudtabla/CrearRecord">Crear Registro</a></li>
+             <li><a runat="server" href="~/crudtabla/ModificarRecord">Modificar Registro</a></li>
+             <li><a runat="server" href="~/crudtabla/ConsultarRecords">Consultar Registro</a></li>
+             <li><a runat="server" href="~/crudtabla/EliminarRecord">Eliminar Registro</a></li>
+         </ul>
+  <!-- end #header --></div>
+    <!-- **********************************************-->
+    <!-- **********************************************-->
+    <!-- Contenido principal -->
+  <div id="mainContent">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+  <!-- end #mainContent --></div>
+    <!-- **********************************************-->
+    <!-- **********************************************-->
+  <div id="footer">
+    <p>Universidad EAN <b>Hoy es: <%=new DateTime(DateTime.Now.Year, DateTime.Now.Month,DateTime.Now.Day).ToLocalTime().ToString()%></b></p>
+    <p>Petición del Usuario desde: <%=(Request.ServerVariables["HTTP_X_FORWARDED_FOR"] ?? Request.ServerVariables["REMOTE_ADDR"]).Split(',')[0].Trim()%></p>
+    <!-- <p>Petición del Usuario desde: <%=Request.UserHostAddress.ToUpper()%></p> -->
+  <!-- end #footer --></div>
+    <!-- Footer -->
+    <!-- **********************************************-->
+    <!-- **********************************************-->
+<!-- end #container --></div>
+<!-- *************************************************** -->
+<!-- *************************************************** -->
+<!-- *************************************************** -->
+        </form>
+</body>
+<!-- *************************************************** -->
+<!-- *************************************************** -->
+<!-- *************************************************** -->
+</html>

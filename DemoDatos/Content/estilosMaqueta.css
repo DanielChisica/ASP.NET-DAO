@@ -1,0 +1,108 @@
+﻿/***************************************************/
+/***************************************************/
+/***************************************************/
+/***************************************************/
+/***************************************************/
+/***************************************************/
+/***************************************************/
+/***************************************************/
+/***************************************************/
+body {
+    font: 100% Verdana, Arial, Helvetica, sans-serif;
+    background: #8fd9fc;
+    margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+    padding: 0;
+    text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+    color: #000000;
+}
+
+.oneColLiqCtrHdr #container {
+    width: 80%; /* this will create a container 80% of the browser width */
+    background: #0382e1;
+    margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+    border: 1px solid #000000;
+    text-align: left; /* this overrides the text-align: center on the body element. */
+}
+
+.oneColLiqCtrHdr #header {
+    background: #ffe8a0;
+    padding: 0 10px 0 20px; /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+}
+
+.oneColLiqCtrHdr #header h1 {
+        margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+        padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+}
+
+.oneColLiqCtrHdr #mainContent {
+    padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+    background: #FFFFFF;
+}
+
+.oneColLiqCtrHdr #footer {
+    padding: 0 10px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
+    background: #ffe8a0;
+}
+
+    .oneColLiqCtrHdr #footer p {
+        margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+        padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+    }
+
+.tablaDatos {
+    width: 80%;
+}
+/***************************************************/
+/***************************************************/
+/***************************************************/
+/***************************************************/
+/***************************************************/
+/***************************************************/
+/*  Estilos del menú*/
+#menu {
+    margin: 0;
+    padding: 0 0 20px 10px;
+    border-bottom: 1px solid #696;
+}
+
+#menu li {
+        margin: 0;
+        padding: 0;
+        display: inline;
+        list-style-type: none;
+        font-size:12px;
+}
+
+#menu a {
+        float: left;
+        line-height: 14px;
+        font-weight: bold;
+        margin: 0 10px 4px 10px;
+        text-decoration: none;
+        color: #363;
+}
+
+#menu a.active, #menu a:hover {
+            border-bottom: 4px solid #696;
+            padding-bottom: 2px;
+            color: #363;
+}
+
+#menu a:hover {
+            color: #363;
+}
+
+.centrado {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/***************************************************/
+/***************************************************/
+/***************************************************/
+/***************************************************/
+/***************************************************/
+/***************************************************/
+/***************************************************/
+/***************************************************/
+/***************************************************/
