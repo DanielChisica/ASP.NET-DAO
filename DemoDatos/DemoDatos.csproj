@@ -116,6 +116,7 @@
     <Content Include="Content\estilosMaqueta.css" />
     <Content Include="Content\Site.css" />
     <Content Include="crudtabla\Autenticar.aspx" />
+    <Content Include="crudtabla\Consulta2.aspx" />
     <Content Include="crudtabla\ConsultarRecords.aspx" />
     <Content Include="crudtabla\CrearRecord.aspx" />
     <Content Include="crudtabla\EliminarRecord.aspx" />
@@ -213,6 +214,13 @@
     </Compile>
     <Compile Include="crudtabla\Autenticar.aspx.designer.cs">
       <DependentUpon>Autenticar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="crudtabla\Consulta2.aspx.cs">
+      <DependentUpon>Consulta2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="crudtabla\Consulta2.aspx.designer.cs">
+      <DependentUpon>Consulta2.aspx</DependentUpon>
     </Compile>
     <Compile Include="crudtabla\ConsultarRecords.aspx.cs">
       <DependentUpon>ConsultarRecords.aspx</DependentUpon>

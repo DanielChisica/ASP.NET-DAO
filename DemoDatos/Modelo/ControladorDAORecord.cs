@@ -322,5 +322,20 @@ namespace DemoDatos.Modelo
 
             return (usuarioConsultado);
         }
+
+        public DataTable consulta2(string idDepartamento)
+        {
+            string queryString = "select nombre,Name from dbo.tbl_Record inner join dbo.tbl_States on tbl_Record.State = dbo.tbl_States.id where dbo.tbl_States.id = @id";
+            SqlCommand command = null;
+            DataTable dt = new DataTable();
+            con.Open();
+            command = new SqlCommand(queryString, con);
+            command.Parameters.AddWithValue("@id", idDepartamento);
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.Fill(dt);
+            con.Close();
+            return dt;
+        }
+
     }//Fin de la clase
 }
