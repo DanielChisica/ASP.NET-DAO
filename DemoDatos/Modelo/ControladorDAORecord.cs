@@ -145,6 +145,16 @@ namespace DemoDatos.Modelo
 
             return (tablaDatos);
         }
+
+        public DataTable rellenarDatosDataSource2()
+        {
+            DataTable tablaDatos = new DataTable();
+            adapt = new SqlDataAdapter("select * from dbo.tbl_States", con);
+            adapt.Fill(tablaDatos);
+            con.Close();
+
+            return (tablaDatos);
+        }
         //************************************************************************
         //************************************************************************
         //************************************************************************
@@ -206,6 +216,8 @@ namespace DemoDatos.Modelo
 
             return (registroConsultado);
         }
+
+        
         //************************************************************************
         //************************************************************************
     }//Fin de la clase

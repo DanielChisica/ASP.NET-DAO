@@ -13,21 +13,30 @@ namespace DemoDatos.crudtabla {
     public partial class ModificarRecord {
         
         /// <summary>
-        /// user control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList user;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// origenDatosSample2 control.
+        /// userList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource origenDatosSample2;
+        protected global::System.Web.UI.WebControls.DropDownList userList;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

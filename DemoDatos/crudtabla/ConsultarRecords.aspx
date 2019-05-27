@@ -39,7 +39,7 @@
             onrowediting="tablaDatosRecords_RowEditing"
             DataKeyNames="id"  
             CellPadding="5" Width="400px" BorderWidth="1px"
-            BackColor="#DEBA84" BorderColor="black" CellSpacing="2">
+            BackColor="#DEBA84" BorderColor="black" CellSpacing="2" OnSelectedIndexChanged="tablaDatosRecords_SelectedIndexChanged">
             <Columns>
                 <asp:TemplateField HeaderText="Nombre Contacto">
                     <ItemTemplate>
