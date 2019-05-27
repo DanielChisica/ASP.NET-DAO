@@ -145,6 +145,16 @@ namespace DemoDatos.Modelo
 
             return (tablaDatos);
         }
+
+        public DataTable rellenarDatosDataSource2()
+        {
+            DataTable tablaDatos = new DataTable();
+            adapt = new SqlDataAdapter("select * from dbo.tbl_States", con);
+            adapt.Fill(tablaDatos);
+            con.Close();
+
+            return (tablaDatos);
+        }
         //************************************************************************
         //************************************************************************
         //************************************************************************
@@ -206,7 +216,126 @@ namespace DemoDatos.Modelo
 
             return (registroConsultado);
         }
+
+        
         //************************************************************************
         //************************************************************************
+
+        public bool Autenticar(string usuario, string password)
+        {
+
+            string queryString =
+            "SELECT COUNT(*) FROM dbo.tbl_Usuarios WHERE usuario = @usuario AND contraseña = @password";
+            SqlCommand command = null;
+            bool bandera = false;
+
+
+            try
+            {
+                con.Open();
+                command = new SqlCommand(queryString, con);
+                command.Parameters.AddWithValue("@usuario", usuario);
+                command.Parameters.AddWithValue("@password", password);
+                int count = Convert.ToInt32(command.ExecuteScalar());
+                if (count != 0)
+                {
+                    bandera = true;
+                }
+            }catch(Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Error " + e.ToString());
+            }
+            finally
+            {
+                //Libera los recursos de la transacción DML de consulta
+                if (command != null)
+                {
+                    command.Dispose();
+                }
+
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+            return bandera;
+
+        }
+
+        public UsuarioVO consultar(string usuario)
+        {
+            UsuarioVO usuarioConsultado = new UsuarioVO();
+            string queryString =
+            "SELECT usuario, nombres, apellidos, fechaIngreso FROM tbl_Usuarios WHERE usuario = @user";
+            SqlCommand command = null;
+            SqlDataReader cursor = null;
+
+
+            try
+            {
+                con.Open();
+                command = new SqlCommand(queryString, con);
+                command.Parameters.AddWithValue("@user", usuario);
+
+                //Recorremos el cursor de la consulta para obtener
+                //los datos usando un sqlDataReader
+                cursor = command.ExecuteReader();
+
+                if (cursor != null)
+                {
+                    while (cursor.Read())
+                    {
+                        usuarioConsultado.Username = cursor.GetString(0);
+                        usuarioConsultado.Nombres = cursor.GetString(1);
+                        usuarioConsultado.Apellidos = cursor.GetString(2);
+                        usuarioConsultado.Fecha_ingreso = cursor.GetDateTime(3);
+                    }
+
+                    //Verificamos los datos
+                    System.Diagnostics.Debug.WriteLine("USER = " + usuarioConsultado.Username
+                        + " NOMBRES = " + usuarioConsultado.Nombres + " APELLIDOS = " + usuarioConsultado.Apellidos + " FECHA INGRESO = " + usuarioConsultado.Fecha_ingreso);
+
+                }
+            }
+
+            catch (Exception errorLectura)
+            {
+                System.Diagnostics.Debug.WriteLine("Error de consulta: " + errorLectura.Message);
+                UsuarioVO registroVacio = new UsuarioVO();
+                registroVacio.Username = "SIN REGISTRO";
+                return (registroVacio);
+            }
+
+            finally
+            {
+                //Libera los recursos de la transacción DML de consulta
+                if (command != null)
+                {
+                    command.Dispose();
+                }
+
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+
+            return (usuarioConsultado);
+        }
+
+        public DataTable consulta2(string idDepartamento)
+        {
+            string queryString = "select nombre,Name from dbo.tbl_Record inner join dbo.tbl_States on tbl_Record.State = dbo.tbl_States.id where dbo.tbl_States.id = @id";
+            SqlCommand command = null;
+            DataTable dt = new DataTable();
+            con.Open();
+            command = new SqlCommand(queryString, con);
+            command.Parameters.AddWithValue("@id", idDepartamento);
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.Fill(dt);
+            con.Close();
+            return dt;
+        }
+
     }//Fin de la clase
 }
