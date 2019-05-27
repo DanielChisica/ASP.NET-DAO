@@ -13,12 +13,14 @@ namespace DemoDatos.crudtabla
     {
 
         private static ControladorDAORecord controladorDatosGrilla;
+        private static ControladorDAORecord controladorDatosGrilla2;
         protected void Page_Load(object sender, EventArgs e)
         {
             string cadenaConexion = "";
             cadenaConexion = System.Configuration.ConfigurationManager.ConnectionStrings["SampleConnectionString"].ConnectionString;
             System.Diagnostics.Debug.WriteLine("Estado cadena conexion: " + cadenaConexion);
             controladorDatosGrilla = new ControladorDAORecord(cadenaConexion);
+            controladorDatosGrilla2 = new ControladorDAORecord(cadenaConexion);
 
             //Verificar que la data de la grilla se cargue únicamente en el primer llamado
             //a la página desde el menú
@@ -38,20 +40,18 @@ namespace DemoDatos.crudtabla
         //*********************************************
         public void refrescarDatos()
         {
-            DataTable tabla = null;
-            tabla = controladorDatosGrilla.rellenarDatosDataSource2();
-            this.stateList.DataSource = tabla;
+            DataTable tabla1 = null;
+            DataTable tabla2 = null;
+            tabla1 = controladorDatosGrilla2.rellenarDatosDataSource2();
+            tabla2 = controladorDatosGrilla.rellenarDatosDataSource();
+            this.stateList.DataSource = tabla1;
             this.stateList.DataBind();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            bool seActualizo = controladorDatosGrilla.modificarRegistro(username.Text, stateList.SelectedValue,int.Parse(Request.QueryString["id"]));
-            refrescarDatos();
-            if (seActualizo)
-            {
+            bool seActualizo = controladorDatosGrilla.modificarRegistro(this.username.Text,this.stateList.SelectedValue,int.Parse(Request.QueryString["id"]));
                 Response.Redirect("ModificarRecord.aspx");
-            }
         }
     }
 }

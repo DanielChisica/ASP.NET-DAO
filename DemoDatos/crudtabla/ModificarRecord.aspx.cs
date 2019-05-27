@@ -46,7 +46,7 @@ namespace DemoDatos.crudtabla
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("EditarRecord.aspx ? id="+this.userList.SelectedValue);
+            Response.Redirect("EditarRecord.aspx?id="+this.userList.SelectedValue);
         }
     }
 }

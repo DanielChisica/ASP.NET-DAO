@@ -3,10 +3,10 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <div id="formularioEdicion" style="padding:20px;">
 
-                        <asp:TextBox ID="username" runat="server" DataTextField="Name" DataValueField="id" ></asp:TextBox>
+                        <asp:TextBox ID="username" runat="server" DataTextField="Name" DataValueField="Name" ></asp:TextBox>
                         <!-- Campo del nombre en departamento -->
                         <asp:DropDownList ID="stateList" runat="server" 
-                            DataTextField="nombre" DataValueField="nombre" Height="16px" Width="213px"
+                            DataTextField="nombre" DataValueField="id" Height="16px" Width="213px"
                             >
                             <asp:ListItem Value="0">Seleccione departamento</asp:ListItem>
                         </asp:DropDownList>
