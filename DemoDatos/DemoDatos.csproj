@@ -120,6 +120,7 @@
     <Content Include="crudtabla\CrearRecord.aspx" />
     <Content Include="crudtabla\EliminarRecord.aspx" />
     <Content Include="crudtabla\ModificarRecord.aspx" />
+    <Content Include="crudtabla\EditarRecord.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -240,6 +241,13 @@
     </Compile>
     <Compile Include="crudtabla\ModificarRecord.aspx.designer.cs">
       <DependentUpon>ModificarRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="crudtabla\EditarRecord.aspx.cs">
+      <DependentUpon>EditarRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="crudtabla\EditarRecord.aspx.designer.cs">
+      <DependentUpon>EditarRecord.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

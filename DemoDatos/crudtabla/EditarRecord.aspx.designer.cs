@@ -10,25 +10,25 @@
 namespace DemoDatos.crudtabla {
     
     
-    public partial class ModificarRecord {
+    public partial class EditarRecord {
         
         /// <summary>
-        /// Label1 control.
+        /// username control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox username;
         
         /// <summary>
-        /// userList control.
+        /// stateList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList userList;
+        protected global::System.Web.UI.WebControls.DropDownList stateList;
         
         /// <summary>
         /// Button1 control.
